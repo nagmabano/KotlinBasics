@@ -1,7 +1,9 @@
 package com.example.kotlinbasics
 
+import java.util.ArrayList
+
 fun main() {
-    val obj = "Samsung"
+//    val obj = intArrayOf(2,2)
 //    if (obj is String) {
 //        println(obj.length)
 //    }
@@ -11,11 +13,18 @@ fun main() {
 //    } else {
 //        println(obj.length)
 //    }
-    demo(obj)
+    demo (1)
+    demo("String")
+    demo(intArrayOf(2,2))
 }
 
 fun demo(x: Any) {
-    if (x is String) {
-        print(x.length) // x is automatically cast to String
+//    if (x is String) {
+//        print(x.length) // x is automatically cast to String
+//    }
+    when (x) {
+        is Int -> println(x + 1)
+        is String -> println(x.length)
+        is IntArray -> println(x.sum())
     }
 }
