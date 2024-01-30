@@ -16,10 +16,16 @@ fun main() {
 //    }
 //    print("done with explicit label")
 
-    listOf<Int>(1,2,3,4,5).forEach {
-        if(it == 3) return@forEach
+//    listOf<Int>(1,2,3,4,5).forEach {
+//        if(it == 3) return@forEach
+//        println(it)
+//    }
+//    print("done with implicit label")
+
+    listOf<Int>(1,2,3,4,5).forEach(fun(it: Int) {
+        if(it == 3) return
         println(it)
-    }
-    print("done with implicit label")
+    })
+    print("done with anonymous function")
 
 }
