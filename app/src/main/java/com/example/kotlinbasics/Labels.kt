@@ -22,10 +22,24 @@ fun main() {
 //    }
 //    print("done with implicit label")
 
-    listOf<Int>(1,2,3,4,5).forEach(fun(it: Int) {
-        if(it == 3) return
-        println(it)
-    })
-    print("done with anonymous function")
+//    listOf<Int>(1,2,3,4,5).forEach(fun(it: Int) {
+//        if(it == 3) return
+//        println(it)
+//    })
+//    print("done with anonymous function")
+    val res = someFunction()
+    println(res)
+}
 
+fun someFunction(): Int {
+    val numbers = listOf(1, 2, 3, 4, 5)
+
+    numbers.forEach {
+        if (it == 3) {
+            return@forEach  // Using label to specify the return point
+        }
+        println(it)
+    }
+
+    return 10
 }
