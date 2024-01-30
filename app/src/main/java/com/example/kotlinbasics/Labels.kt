@@ -10,8 +10,16 @@ fun main() {
 //        }
 //    }
 
-    listOf<Int>(1,2,3,4,5).forEach lit@ {
-        if(it == 3) return@lit
+//    listOf<Int>(1,2,3,4,5).forEach lit@ {
+//        if(it == 3) return@lit
+//        println(it)
+//    }
+//    print("done with explicit label")
+
+    listOf<Int>(1,2,3,4,5).forEach {
+        if(it == 3) return@forEach
         println(it)
     }
+    print("done with implicit label")
+
 }
