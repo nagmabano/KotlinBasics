@@ -1,6 +1,6 @@
 package com.example.kotlinbasics
 
-class Person constructor(var name: String , var age: Int) {
+class Person(var name: String , var age: Int) {
 }
 
 fun main() {
