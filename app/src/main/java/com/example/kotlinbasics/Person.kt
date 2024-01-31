@@ -1,6 +1,6 @@
 package com.example.kotlinbasics
 
-class Person(var name: String , var age: Int) {
+data class Person(var name: String , var age: Int) {
 }
 
 fun main() {
