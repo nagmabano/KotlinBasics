@@ -2,6 +2,16 @@ package com.example.kotlinbasics
 
 fun main() {
 
+    add(5,10)
+
+}
+
+fun add(num1:Int, num2: Int): Int {
+    val result = num1 + num2
+    return result
+}
+
+fun askDetails() {
     println("Who is this coffee for?")
     val name = readln()
 
