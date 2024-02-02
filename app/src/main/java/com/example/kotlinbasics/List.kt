@@ -21,10 +21,7 @@ fun main() {
 //    shoppingListMutable.set(1, "Cooling System")
     println(shoppingListMutable.contains("HD"))
 
-    for (item in shoppingListMutable) {
-        if(item == "HD")
-            shoppingListMutable.removeLast()
-            break
+    for (item in 0 until shoppingListMutable.size) {
         println(item)
     }
 
