@@ -1,6 +1,6 @@
 package com.example.kotlinbasics
 
-class Dog(name: String) {
+class Dog(val name: String, val breed: String) {
 
     init {
         bark(name)
