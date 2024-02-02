@@ -12,4 +12,13 @@ fun main() {
     shoppingListMutable.add("graphic card RTX 4060")
     println(shoppingListMutable)
 
+    shoppingListMutable.removeAt(2)
+    println(shoppingListMutable)
+    shoppingListMutable.add(2, "ssd")
+    println(shoppingListMutable[2])
+    shoppingListMutable[2] = "HD"
+    println(shoppingListMutable)
+    shoppingListMutable.set(1, "Cooling System")
+    println(shoppingListMutable.contains("HD"))
+
 }
