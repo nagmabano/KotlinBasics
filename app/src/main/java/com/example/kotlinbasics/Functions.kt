@@ -1,16 +1,13 @@
 package com.example.kotlinbasics
 
+data class CoffeeDetails(val sugarCount: Int, val name: String, val size: String, val creamAmount:Int)
+// you cant have extra functions for data class unlike the normal class
 fun main() {
 
-    add(5,10)
+    val coffeeForJenny = CoffeeDetails(0, "Jenny", "xl", 3)
+    makeCoffee(coffeeForJenny)
 
 }
-
-fun add(num1:Int, num2: Int): Int {
-    val result = num1 + num2
-    return result
-}
-
 fun askDetails() {
     println("Who is this coffee for?")
     val name = readln()
@@ -18,14 +15,14 @@ fun askDetails() {
     println("How many pieces of sugar do you want?")
     val sugarCount = readln().toInt()
 
-    makeCoffee(sugarCount, name)
+//    makeCoffee(coffeeDetails.sugarCount, coffeeDetails.name)
 }
 
-fun makeCoffee(sugarCount: Int, name: String) {
-    if (sugarCount == 0)
-        println("Coffee with no sugar for $name")
-    else if(sugarCount == 1)
-        println("Coffee with $sugarCount spoon of sugar for $name")
+fun makeCoffee(coffeeDetails: CoffeeDetails) {
+    if (coffeeDetails.sugarCount == 0)
+        println("Coffee with no sugar and ${coffeeDetails.creamAmount} scoop of cream for ${coffeeDetails.name}")
+    else if(coffeeDetails.sugarCount == 1)
+        println("Coffee with ${coffeeDetails.sugarCount} spoon of sugar and ${coffeeDetails.creamAmount} scoop of cream for ${coffeeDetails.name}")
     else
-        println("Coffee with $sugarCount spoons of sugar for $name")
+        println("Coffee with ${coffeeDetails.sugarCount} spoons of sugar and ${coffeeDetails.creamAmount} scoop of cream for ${coffeeDetails.name}")
 }
