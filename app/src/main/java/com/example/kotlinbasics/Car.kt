@@ -18,6 +18,16 @@ class MathOperations {
     }
 }
 
+interface Logger {
+    fun log(message: String)
+    // Companion object implements the logger interface
+    companion object : Logger {
+        override fun log(message: String) {
+            println("Logger: $message")
+        }
+    }
+}
+
 fun main() {
     var car = Car.createCar("Sedan")
     println(car.model)
@@ -26,5 +36,7 @@ fun main() {
     println(pi)
     val e = MathOperations.E
     println(e)
+
+    Logger.log("Hello companion object!!")
 
 }
