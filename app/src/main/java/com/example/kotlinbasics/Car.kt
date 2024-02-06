@@ -28,7 +28,16 @@ interface Logger {
     }
 }
 
+class SingletonExample private constructor() {
+    // companin object used to implement singleton pattern
+    companion object {
+        val instance: SingletonExample by lazy { SingletonExample() }
+    }
+}
+
 fun main() {
+    // if you declare a companion object inside your class, you can access its members using
+    // only the class name as a qualifier.
     var car = Car.createCar("Sedan")
     println(car.model)
 
@@ -38,5 +47,7 @@ fun main() {
     println(e)
 
     Logger.log("Hello companion object!!")
+
+    val singletonInstance = SingletonExample.instance
 
 }
