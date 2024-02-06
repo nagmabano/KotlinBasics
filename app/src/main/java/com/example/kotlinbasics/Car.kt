@@ -10,7 +10,21 @@ class Car private constructor(val model:String){
     }
 }
 
+class MathOperations {
+    // companion objects are used to define constant properties of the class
+    companion object {
+        const val PI = 3.14159
+        const val E = 2.71828
+    }
+}
+
 fun main() {
     var car = Car.createCar("Sedan")
     println(car.model)
+
+    val pi = MathOperations.PI
+    println(pi)
+    val e = MathOperations.E
+    println(e)
+
 }
