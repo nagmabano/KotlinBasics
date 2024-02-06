@@ -7,6 +7,19 @@ package com.example.kotlinbasics
         }
     }
 
+class Constructors {
+
+    // code in initializer block becomes part of the primary constructor
+    init {
+        println("Init block")
+    }
+
+    constructor(i: Int) {
+        println("Constructor $i")
+    }
+}
+
+
 
 fun main() {
     val p1 = Hierarchy("Alice")
@@ -17,4 +30,8 @@ fun main() {
     }
     println(p2.name)
     println(p2.children)
+
+    // Even if the class has no primary constructor, the delegation still happens implicitly,
+    // and the initializer blocks are still executed
+    Constructors(2)
 }
