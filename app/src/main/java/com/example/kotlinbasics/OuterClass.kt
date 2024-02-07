@@ -5,11 +5,11 @@ class OuterClass {
 
     inner class InnerClass() {
         fun displayOuterProperty() {
-            // val property: String = "Inner Property"
+             val property: String = "Inner Property"
             // Inner class has access to public and private properties of outer class
             println(property)
             // explicitly referring outer class to resolve the name conflict between inner and outer class
-//            println(this@OuterClass.property)
+            println(this@OuterClass.property)
         }
     }
 }
