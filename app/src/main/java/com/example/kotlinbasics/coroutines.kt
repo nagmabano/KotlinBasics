@@ -7,8 +7,17 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 fun main() = runBlocking {
-    doWorld()
-    println("done")
+    val job = launch {
+        delay(1000L)
+        println("World!")
+    }
+
+    println("hello")
+    job.join()
+    println("Done")
+
+//    doWorld()
+//    println("done")
 //    launch { //coroutine builder
 //        doWorld() // extract function refactoring
 //    }
