@@ -3,11 +3,11 @@ package com.example.kotlinbasics
 class MyTest {
     lateinit var subject: TestSubject
 
-    @SetUp fun setup() {
+    fun setup() {
         subject = TestSubject()
     }
 
-    @Test fun test() {
+    fun test() {
         subject.method()
     }
 }
