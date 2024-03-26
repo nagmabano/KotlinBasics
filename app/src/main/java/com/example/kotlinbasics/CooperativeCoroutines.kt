@@ -1,9 +1,11 @@
 package com.example.kotlinbasics
 
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.yield
 
 fun main() = runBlocking {// create a blocking coroutine that runs in the current thread(main)
 
@@ -12,12 +14,15 @@ fun main() = runBlocking {// create a blocking coroutine that runs in the curren
     val job: Job = launch {// Thread T1 creates a non blocking coroutine
         for (i in 0..500) {
             print("$i.")
-            delay(50)
+//            delay(50)
+            yield() // use delay or any other suspending function as per your need.
         }
     }
-    delay(200)
-    job.cancel()
-    job.join() // waits for coroutine to finish
+    delay(2) // print few values before we cancel
+//    job.cancel()
+//    job.join() // waits for coroutine to finish
+
+    job.cancelAndJoin() // replaces cancel and join function
 
     println("\nMain program ends: ${Thread.currentThread().name}") // main thread
 
