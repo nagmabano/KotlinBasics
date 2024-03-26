@@ -1,5 +1,7 @@
 package com.example.kotlinbasics
 
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import kotlin.system.measureTimeMillis
@@ -9,9 +11,9 @@ fun main() = runBlocking{
     println("Main program starts: ${Thread.currentThread().name}")
 
     val time = measureTimeMillis {
-        val one = getMessageOne()
-        val two = getMessageTwo()
-        println("The entire message is: ${one + two}")
+        val one: Deferred<String> = async { getMessageOne() }
+        val two: Deferred<String> = async { getMessageTwo() }
+        println("The entire message is: ${one.await() + two.await()}")
     }
 
     println("Completed in time $time ms")
