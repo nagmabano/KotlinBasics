@@ -11,13 +11,14 @@ import java.lang.Exception
 fun main() = runBlocking {
     println("\nMain program starts: ${Thread.currentThread().name}")
 
-    withTimeoutOrNull(2000) {
-            for (i in 0..500) {
-                println("$i.")
-                delay(500)
-            }
-
+    val result:String? = withTimeoutOrNull(20000) {
+        for (i in 0..500) {
+            println("$i.")
+            delay(5)
+        }
+        "I am done"
     }
+    println(result)
 
     println("\nMain program ends: ${Thread.currentThread().name}")
 }
