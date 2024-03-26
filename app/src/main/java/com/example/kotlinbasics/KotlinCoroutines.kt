@@ -21,6 +21,7 @@ fun main() = runBlocking {
         }
 
         val num:Int = jobDeffered.await()
+        println(num)
 
         // job.cancel() to cancel a coroutine
 //        jobDeffered.join() // job function will wait for the execution of the job to complete
