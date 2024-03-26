@@ -24,6 +24,8 @@ fun main() = runBlocking {// create a blocking coroutine that runs in the curren
         } catch (e: CancellationException) {
             println("\nException caught safely: $e ")
         } finally {
+            delay(200) // Generally we don't use suspending function in finally,
+            // it throws an exception and the code in finally is not executed
             println("\nClose resources in finally")
         }
 
