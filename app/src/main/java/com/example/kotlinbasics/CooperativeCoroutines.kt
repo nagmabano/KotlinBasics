@@ -16,7 +16,7 @@ fun main() = runBlocking {// create a blocking coroutine that runs in the curren
     val job: Job = launch(Dispatchers.Default) {// Thread T1 creates a non blocking coroutine
         for (i in 0..500) {
             if (!isActive) {
-                break;
+                return@launch
             }
             print("$i.")
             Thread.sleep(1)
