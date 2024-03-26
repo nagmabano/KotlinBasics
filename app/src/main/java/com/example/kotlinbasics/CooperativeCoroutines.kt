@@ -12,7 +12,7 @@ fun main() = runBlocking {// create a blocking coroutine that runs in the curren
     val job: Job = launch {// Thread T1 creates a non blocking coroutine
         for (i in 0..500) {
             print("$i.")
-            Thread.sleep(50)
+            delay(50)
         }
     }
     delay(200)
