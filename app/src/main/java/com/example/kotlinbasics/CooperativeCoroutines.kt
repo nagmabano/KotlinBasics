@@ -24,7 +24,7 @@ fun main() = runBlocking {// create a blocking coroutine that runs in the curren
                 delay(10)
             }
         } catch (e: CancellationException) {
-            println("\nException caught safely: $e ")
+            println("\nException caught safely: ${e.message} ")
         } finally {
             withContext(NonCancellable){
                 delay(200) // Generally we don't use suspending function in finally,
