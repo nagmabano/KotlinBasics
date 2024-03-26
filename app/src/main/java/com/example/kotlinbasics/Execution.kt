@@ -13,7 +13,7 @@ fun main() = runBlocking{
 
     val one: Deferred<String> = async(start = CoroutineStart.LAZY) { getMessageOne() }
     val two: Deferred<String> = async(start = CoroutineStart.LAZY) { getMessageTwo() }
-//    println("The entire message is: ${one.await() + two.await()}")
+    println("The entire message is: ${one.await() + two.await()}")
 
     println("Main program ends: ${Thread.currentThread().name}")
 
