@@ -27,6 +27,13 @@ fun main() = runBlocking {
         println("C2: ${Thread.currentThread().name}") // DefaultDispatcher-worker-1 - Thread T1
         delay(2000)
         println("C3: ${Thread.currentThread().name}") // Thread? whichever thread is available
+
+        // Using coroutine context to flow context from parent to child
+        val g = launch(coroutineContext) {
+            println("C7: ${Thread.currentThread().name}") // main
+            delay(100)
+            println("C8: ${Thread.currentThread().name}") // main
+        }
     }
 
     // With parameters: Dispatchers.Unconfined [Unconfined Dispatcher]
@@ -39,5 +46,7 @@ fun main() = runBlocking {
         println("C5: ${Thread.currentThread().name}") // Thread some other thread which is not main
                                                         // Assigned from shared pool of threads
     }
+
+
 
 }
