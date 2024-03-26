@@ -3,6 +3,7 @@ package com.example.kotlinbasics
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlin.concurrent.thread
 
 fun main() {
@@ -14,7 +15,9 @@ fun main() {
         println("Fake work finished: ${Thread.currentThread().name}") // Either T1 or any of the thread
     }
 
-    Thread.sleep(2000)
+    runBlocking {// creates a coroutine that blocks the main thread
+        delay(2000)
+    }
 
     println("Main program ends:  ${Thread.currentThread().name}")
 }
