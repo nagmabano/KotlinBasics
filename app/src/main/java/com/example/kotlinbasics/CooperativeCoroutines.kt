@@ -36,8 +36,8 @@ fun main() = runBlocking {// create a blocking coroutine that runs in the curren
     }
     delay(200) // print few values before we cancel
 
-    job.cancelAndJoin() // replaces cancel and join function
-
+    job.cancel(CancellationException("My own crash message")) // sending your own cancellation message
+    job.join()
     println("\nMain program ends: ${Thread.currentThread().name}") // main thread
 
 }
