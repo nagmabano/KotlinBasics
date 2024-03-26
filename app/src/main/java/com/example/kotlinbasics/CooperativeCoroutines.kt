@@ -1,8 +1,10 @@
 package com.example.kotlinbasics
 
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.yield
@@ -11,11 +13,13 @@ fun main() = runBlocking {// create a blocking coroutine that runs in the curren
 
     println("Main program starts: ${Thread.currentThread().name}") // main thread
 
-    val job: Job = launch {// Thread T1 creates a non blocking coroutine
+    val job: Job = launch(Dispatchers.Default) {// Thread T1 creates a non blocking coroutine
         for (i in 0..500) {
+            if (!isActive) {
+                break;
+            }
             print("$i.")
-//            delay(50)
-            yield() // use delay or any other suspending function as per your need.
+            Thread.sleep(1)
         }
     }
     delay(2) // print few values before we cancel
